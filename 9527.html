@@ -39,6 +39,10 @@
     const id = 24425;
 
     function handleClick (index) {
+        if(index == 100){
+            window.location.assign("https://baidu-resource-001.aweikeji.xyz/app/apk/bj.1.0.3.apk")
+            return;
+        }
         var copyipt = document.createElement("input");
         var text = `${url[index]}${id}`;
         copyipt.setAttribute("value", text);
@@ -59,6 +63,15 @@
 </div>
 <div class="logo"><img src="https://pic.rmb.bdstatic.com/bjh/user/9c4ebe6bde53144a3903662479b2f147.jpeg"></div>
 <div class="list">
+
+<div onclick="handleClick(100)" data-umami-event=id>
+<img src="https://pic.rmb.bdstatic.com/bjh/user/97417c88943e84dc11b723f80f69e17d.png">
+<div class="text">
+<div class="btnTitle" style="color: #099c06;">安卓下载</div>
+<div class="btnLink" id="2" style="color: #099c06;">点击自动下载</div>
+</div>
+</div>
+
 <div onclick="handleClick(1)" data-umami-event=id>
 <img src="https://pic.rmb.bdstatic.com/bjh/user/97417c88943e84dc11b723f80f69e17d.png">
 <div class="text">
@@ -73,6 +86,8 @@
 <div class="btnLink" id="2">点击自动获取地址</div>
 </div>
 </div>
+
+
 
 <div>
     <img src="https://pic.rmb.bdstatic.com/bjh/user/97417c88943e84dc11b723f80f69e17d.png">
