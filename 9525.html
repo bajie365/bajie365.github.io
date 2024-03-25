@@ -15,7 +15,7 @@
 
 
 <script type="text/javascript">
-const getParams = (paramName: string) =>{
+const getParams = (paramName) =>{
   let params = new URLSearchParams(window.location.search);
   return  params.get(paramName)??null;
 };
