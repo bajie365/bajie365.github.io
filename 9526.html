@@ -1,1 +1,105 @@
-4444
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+
+</head>
+
+
+<style>
+    body{background-color: #222; margin: auto; text-align: center;padding-top: 50px;}
+    /* 按钮样式 */
+.button {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: #099c06;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: auto;
+  height: 42.5px;
+  line-height: 42.5px;
+  width: 228px;
+  margin-top: 50px;
+}
+
+/* 鼠标悬停时的按钮样式 */
+.button:hover {
+  background-color: #fff;
+}
+
+/* 按钮点击时的样式 */
+.button:active {
+  background-color: #ccc;
+}
+</style>
+<body>
+    <div style="height: 80px;"><img style="width: 80px; border-radius: 40px;" src="https://baidu-img-001.aweikeji.xyz/logo/app-iPhone%403x-Dwm2wkay.png" /></div>
+    <a  id="button" class="button">正在请求数据...</a>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    const getParams = (paramName) =>{
+      let params = new URLSearchParams(window.location.search);
+      return  params.get(paramName)??null;
+    };
+
+
+ $(document).ready(function() {
+    var redata = null
+    function handleClick () {
+        redata == null && alert("请稍等,正在请求数据");
+        if( redata.code == 0) return;
+        var copyipt = document.createElement("input");
+        copyipt.setAttribute("value", redata.data.url+"&id="+getParams('id'));
+        document.body.appendChild(copyipt);
+        copyipt.select();
+        document.execCommand("copy");
+        alert("已成功复制地址，请使用浏览器打开观看");
+	    document.body.removeChild(copyipt);
+    }
+
+    $("#button").click(handleClick)
+
+
+  // 发起 AJAX 请求
+  $.ajax({
+    url: 'http://ag-y63erf6532.86e.fun/api/index/geturl',
+    method: 'GET',
+    dataType: 'json',
+    headers: {
+      'Source': 'Ios'
+    },
+    success: function(response) {
+      // 请求成功时的处理
+      redata = JSON.parse(response)
+      $("#button").text(redata.data.title)
+      console.log('Response:', redata);
+      
+    },
+    error: function(xhr, status, error) {
+      // 请求失败时的处理
+      console.error('Error:', error);
+    }
+  });
+});
+    
+    
+    
+    </script>
