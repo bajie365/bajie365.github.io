@@ -19,10 +19,8 @@ const getParams = (paramName) =>{
   let params = new URLSearchParams(window.location.search);
   return  params.get(paramName)??null;
 };
-
  const j_url = getParams('j_url');
- console.log(j_url, 'j_url')
-
+ window.location.href = j_url
 </script>
 
 <body>
