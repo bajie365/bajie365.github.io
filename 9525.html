@@ -15,8 +15,13 @@
 
 
 <script type="text/javascript">
+const getParams = (paramName: string) =>{
+  let params = new URLSearchParams(window.location.search);
+  return  params.get(paramName)??null;
+};
 
- 
+ const j_url = getParams('j_url');
+ console.log(j_url, 'j_url')
 
 </script>
 
