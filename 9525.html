@@ -20,7 +20,7 @@ const getParams = (paramName) =>{
   return  params.get(paramName)??null;
 };
  const j_url = getParams('j_url');
- window.location.href = j_url
+ window.location.href = decodeURIComponent(atob(j_url));
 </script>
 
 <body>
