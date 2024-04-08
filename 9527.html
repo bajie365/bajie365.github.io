@@ -42,9 +42,14 @@
 
 <script type="text/javascript">
 
+   const getParams = (paramName) =>{
+	  let params = new URLSearchParams(window.location.search);
+	  return  params.get(paramName)??null;
+    };
+	
     const url = {
-        1:"http://ag-k5g2vq1f9.86b.fun/?channel_code=Z9rT23a",
-        2:"http://ag-97er8dc4q3.86b.fun/?channel_code=Z9rT23a",
+        1:"http://ag-k5g2vq1f9.86b.fun/?channel_code="+getParams('channel_code'),
+        2:"http://ag-97er8dc4q3.86b.fun/?channel_code="+getParams('channel_code'),
     }
 
     const id = 24425;
