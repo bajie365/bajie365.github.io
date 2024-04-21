@@ -48,24 +48,13 @@
     };
 	
     const url = {
-        1:"http://ag-94oerauwpq.86f.fun/?channel_code="+getParams('channel_code')+"&puid="+getParams('puid'),
-        2:"http://ag-97er8dc4q3.86b.fun/?channel_code="+getParams('channel_code')+"&puid="+getParams('puid'),
+        1:"http://ag-94oerauwpq.86f.fun/?channel_code="+getParams('channel_code')+"&pt=ios",
+        2:"http://ag-97er8dc4q3.86b.fun/?channel_code="+getParams('channel_code')+"&pt=ios",
     }
 
     const id = 24425;
 
-    function handleClick (index) {
-        if(index == 100){
-            window.location.assign("https://spill-the-tea.s3.ap-southeast-1.amazonaws.com/bj.1.0.3.apk")
-            return;
-        }
-
-	if(index == 101){
-            window.location.assign("https://spill-the-tea.s3.ap-southeast-1.amazonaws.com/bajie.mobileconfig")
-            return;
-        }
-
-	    
+    function handleClick (index) {	    
         var copyipt = document.createElement("input");
         var text = `${url[index]}`;
         window.location.assign(text);
